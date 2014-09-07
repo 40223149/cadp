@@ -15,6 +15,8 @@ import random
 import os
 # for mako
 from mako.lookup import TemplateLookup
+# 導入 gear.py
+import gear
 
 ################################# 2. 全域變數設定, 近端與遠端目錄設定
 cwd = os.getcwd()
@@ -113,6 +115,9 @@ class Guess(object):
 #@-others
 ################################# 4. 程式啟動設定與執行
 root = Guess()
+# 將 gear.py 中的 Gear() 類別與 gear URL 對應
+root.gear = gear.Gear()
+
 application_conf = {# 設定靜態 templates 檔案目錄對應
         '/templates':{
         'tools.staticdir.on': True,
